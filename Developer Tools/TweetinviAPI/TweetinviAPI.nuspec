@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>TweetinviAPI</id>
-        <version>1.0</version>
+        <version>9.9.9-pre</version>
         <title>Tweetinvi</title>
         <authors>Linvi</authors>
         <owners>Linvi</owners>
@@ -16,10 +16,7 @@
         <language>en-US</language>
         <tags>twitter c# rest rest api 1.1 .net</tags>
         <dependencies>
-            <dependency id="Autofac" version="3.5.2" />
-            <dependency id="Microsoft.Bcl.Async" version="1.0.168" />
-            <dependency id="Microsoft.Bcl.Build" version="1.0.21" />
-            <dependency id="Microsoft.Net.Http" version="2.2.29" />
+            <dependency id="Autofac" version="4.0.0-rc3-316" />
             <dependency id="Newtonsoft.Json" version="9.0.1" />
         </dependencies>
     </metadata>

@@ -15,7 +15,8 @@ namespace Tweetinvi.Core.Events
                 _targetReference = new WeakReference(realDelegate.Target);
             else
                 _targetReference = null;
-            _method = realDelegate.Method;
+            _method = realDelegate.GetMethodInfo();
+            // ??? TEST
         }
 
         public TDelegate GetDelegate()
@@ -27,11 +28,11 @@ namespace Tweetinvi.Core.Events
         {
             if (_targetReference != null)
             {
-                return Delegate.CreateDelegate(typeof(TDelegate), _targetReference.Target, _method);
+                return _method.CreateDelegate(typeof(TDelegate), _targetReference.Target);
             }
             else
             {
-                return Delegate.CreateDelegate(typeof(TDelegate), _method);
+                return _method.CreateDelegate(typeof(TDelegate), _targetReference.Target);
             }
         }
 
@@ -47,7 +48,8 @@ namespace Tweetinvi.Core.Events
             Delegate d = (Delegate)(object)other;
             return d != null
                 && d.Target == _targetReference.Target
-                && d.Method.Equals(_method);
+                && d.GetMethodInfo().Equals(_method);
+            // ??? TEST
         }
 
         #endregion

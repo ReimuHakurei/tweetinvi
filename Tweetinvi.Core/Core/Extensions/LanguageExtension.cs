@@ -11,8 +11,11 @@ namespace Tweetinvi.Core.Extensions
         public static string GetLanguageCode(this Language language)
         {
             var field = language.GetType().GetField(language.ToString());
-            var descriptionAttribute = (LanguageAttribute)Attribute.GetCustomAttribute(field, typeof(LanguageAttribute));
-            return descriptionAttribute != null ? descriptionAttribute.Language : language.ToString();
+
+            //var descriptionAttribute = CustomAttributeExtensions.GetCustomAttribute(field, typeof(LanguageAttribute));
+            //var descriptionAttribute = (LanguageAttribute)Attribute.GetCustomAttribute(field, typeof(LanguageAttribute));
+
+            return language.ToString();
         }
 
         public static Language GetLangFromDescription(string descriptionValue)
@@ -48,7 +51,7 @@ namespace Tweetinvi.Core.Extensions
 
         private static bool IsValidDescriptionField(string descriptionValue, FieldInfo field)
         {
-            var descriptionAttribute = Attribute.GetCustomAttribute(field, typeof(LanguageAttribute));
+            var descriptionAttribute = CustomAttributeExtensions.GetCustomAttribute(field, typeof(LanguageAttribute));
 
             if (descriptionAttribute == null)
             {

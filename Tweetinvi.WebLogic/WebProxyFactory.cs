@@ -9,7 +9,8 @@ namespace Tweetinvi.WebLogic
     {
         public IWebProxy GetProxy(string proxyURL)
         {
-            if (!string.IsNullOrEmpty(proxyURL))
+
+            /*if (!string.IsNullOrEmpty(proxyURL))
             {
                 var proxyUri = new Uri(proxyURL);
                 var proxy = new WebProxy(string.Format("{0}://{1}:{2}", proxyUri.Scheme, proxyUri.Host, proxyUri.Port));
@@ -27,7 +28,7 @@ namespace Tweetinvi.WebLogic
 
                 // Assign proxy to handler
                 return proxy;
-            }
+            }*/
 
             return null;
         }

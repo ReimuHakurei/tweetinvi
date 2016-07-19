@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Tweetinvi.Core.Attributes;
 using Tweetinvi.Models;
 
@@ -21,7 +22,8 @@ namespace Tweetinvi.Core.Extensions
         private static TimeZoneFromTwitterAttribute GetAttribute(TimeZoneFromTwitter timeZoneFromTwitter)
         {
             var field = timeZoneFromTwitter.GetType().GetField(timeZoneFromTwitter.ToString());
-            return (TimeZoneFromTwitterAttribute)Attribute.GetCustomAttribute(field, typeof(TimeZoneFromTwitterAttribute));
+
+            return (TimeZoneFromTwitterAttribute)CustomAttributeExtensions.GetCustomAttribute(field, typeof(TimeZoneFromTwitterAttribute));
         }
     }
 }
