@@ -143,7 +143,7 @@ namespace Tweetinvi.Streams
                 if (TryGetMessage(json)) return;
                 if (TryGetWarning(json)) return;
                 if (TryGetFriends(json)) return;
-
+            
                 TryInvokeGlobalStreamMessages(json);
             };
 
